@@ -1,4 +1,5 @@
 import Header from "./assets/screens/Header";
+import Banner from "./assets/screens/Banner";
 import "./App.css";
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
     <div className="container">
       
     <Header></Header>
+    
 
     </div>
 

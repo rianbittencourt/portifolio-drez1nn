@@ -1,27 +1,21 @@
-.container {
+.header-box {
+  display: flex;
   max-width: 1000px;
-  height: 100vh;
   margin: 0 auto;
+  justify-content: space-between;
   margin-top: 20px;
 }
 
-.header-container {
-  display: flex;
- 
-  justify-content: space-between;
-}
-
-.header-container nav ul li {
+.header-box nav ul li {
   font-family: "Raleway";
   color: #f3f3f3;
   text-shadow: 0px 4px 4px rgba(199, 199, 199, 0.25);
   float: left;
   margin: 0 0 0 15px;
   list-style: none;
-  
 }
 
-.menu{
+.menu {
   margin-right: 200px;
 }
 
@@ -31,6 +25,88 @@ nav {
   text-align: center;
 }
 
-nav ul li img{
-  margin-top: 5px
+nav ul li img {
+  margin-top: 5px;
+}
+
+.header-container {
+  position: absolute;
+  background: rgb(57, 56, 57);
+  background: linear-gradient(
+    0deg,
+    rgba(57, 56, 57, 1) 0%,
+    rgba(198, 24, 24, 0.2665441176470589) 50%,
+    rgba(88, 88, 88, 0.8687850140056023) 100%
+  );
+  width: 100%;
+  height: 500px;
+}
+
+.banner-box {
+  display: flex;
+  max-width: 1000px;
+  margin: 0 auto;
+  justify-content: space-between;
+  margin-top: 50px;
+  align-items: center;
+}
+
+.banner-box h1 {
+  display: inline;
+  font-family: "Bungee";
+  font-weight: 400;
+  font-size: 4.5rem;
+  color: #ffffff;
+  text-shadow: 0px 4px 4px rgba(255, 255, 255, 0.55);
+}
+.banner-box h2 {
+  position: relative;
+  top: -75px;
+  left: 2px;
+  font-family: "Raleway";
+  font-weight: 300;
+  font-size: 24px;
+  color: #9f9d9d;
+  text-shadow: 0px 4px 4px rgba(199, 199, 199, 0.25);
+}
+
+.circle-h1 {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: red;
+  display: inline-block;
+}
+.button-box {
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  width: 48%;
+  height: 50px;
+  border-radius: 5px;
+  border: solid 1px white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  
+}
+
+#btn-buybeat {
+  background-color: red;
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  color: #ffffff;
+  text-shadow: 0px 4px 4px rgba(199, 199, 199, 0.25);
+}
+
+#btn-buymusic {
+  background-color: rgba(0, 0, 0, 0);
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  color: #ffffff;
+  text-shadow: 0px 4px 4px rgba(199, 199, 199, 0.25);
 }
