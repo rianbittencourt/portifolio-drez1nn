@@ -1,6 +1,8 @@
 import Header from "./assets/screens/Header";
-import Banner from "./assets/screens/Banner";
+
 import "./App.css";
+
+import SectionAbout from "./assets/screens/SectionAbout";
 
 function App() {
 
@@ -8,9 +10,10 @@ function App() {
 
   return(
      
-    <div className="container">
+    <div>
       
     <Header></Header>
+    <SectionAbout></SectionAbout>
     
 
     </div>
