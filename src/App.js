@@ -1,26 +1,16 @@
 import Header from "./assets/screens/Header";
 
 import "./App.css";
-
 import SectionAbout from "./assets/screens/SectionAbout";
+import Sections from "./assets/screens/Sections";
 
 function App() {
-
-
-
-  return(
-     
+  return (
     <div>
-      
-    <Header></Header>
-    <SectionAbout></SectionAbout>
-    
-
+      <Header></Header>
+      <Sections></Sections>
     </div>
-
-    )
-
-  }
- 
+  );
+}
 
 export default App;

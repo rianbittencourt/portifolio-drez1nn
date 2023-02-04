@@ -1,11 +1,11 @@
 import React from "react";
 
 
-function TittleSection() {
+function TittleSection({ children }) {
   return (
 
      <div className="tittle-box">
-     <h3>SOBRE MIM</h3>
+     <h3>{children}</h3>
      </div>
     
   );
