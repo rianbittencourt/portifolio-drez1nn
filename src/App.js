@@ -6,10 +6,11 @@ import Sections from "./assets/screens/Sections";
 
 function App() {
   return (
-    <div>
+      <>
       <Header></Header>
       <Sections></Sections>
-    </div>
+      </>
+    
   );
 }
 

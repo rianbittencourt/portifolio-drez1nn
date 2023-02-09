@@ -2,49 +2,195 @@ import React from "react";
 import TittleSection from "../components/TitleSection";
 import SpotifyWebApi from "spotify-web-api-js";
 import { useState, useEffect } from "react";
+import { useMediaQuery } from "react-responsive";
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
+
+
 
 const spotifyApi = new SpotifyWebApi();
 
-function SectionMusic({}) {
-  spotifyApi.setAccessToken(
-    "BQBBMKbh4Rh08-ltPy4ZrfXJlk0LLe-Mj5RBjSr7dWkeWNOELBR6jd3XDH3mfExm7ia5dMj4s1vmIRvP5Xucpg9rIHKB56M94-MKyAL4eapZv2tNrfO_pgGvx2yCYpjepeBfOWn4uepPeJFCLK5wwCV86siAM7mnL7m8mkZwyrphNahXSA"
-  );
-  const [tracks, setTracks] = useState([]);
+function SectionMusic() {
+  const tracks = [
+    "https://open.spotify.com/embed/track/0MsElY1sPtaN1ehlmvzTJO",
+    "https://open.spotify.com/embed/track/5xg4a5a8O0tpk4bGEcgErJ",
+    "https://open.spotify.com/embed/track/1XgdP4lqAiKcyKbriynm3A",
+    "https://open.spotify.com/embed/track/71CoysLp6cDVeWnefuiuwD",
+    "https://open.spotify.com/embed/track/5mVAKTVvFBpQN1m0fQ5gzD",
+    "https://open.spotify.com/embed/track/2KvrL6omt7RKk43tzYrsMt",
+  ];
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  useEffect(() => {
-    spotifyApi.getArtistTopTracks(
-      "2qdwFyyeXCcDIZF8a0J16g",
-      "US",
-      function (error, data) {
-        if (error) {
-          console.error(error);
-        } else {
-          setTracks(data.tracks.slice(0, 6));
-        }
-      }
-    );
-  }, []);
+  const previous = () => {
+    if (currentIndex === 0) {
+      setCurrentIndex(tracks.length - 1);
+    } else {
+      setCurrentIndex(currentIndex - 1);
+    }
+  };
 
-  function teste() {
-    console.log(tracks);
-  }
+  const next = () => {
+    if (currentIndex === tracks.length - 1) {
+      setCurrentIndex(0);
+    } else {
+      setCurrentIndex(currentIndex + 1);
+    }
+  };
+
+  const isDesktopOrLaptop = useMediaQuery({
+    query: "(min-width: 787px)",
+  });
+  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 786px)" });
 
   return (
     <div className="section-music">
       <TittleSection>MÚSICAS</TittleSection>
 
-      {tracks.map((track) => (
-        <iframe
-          className="player"
-          title="Spotify Player"
-          src={`https://open.spotify.com/embed/track/${track.id}`}
-          allowTransparency="true"
-          allow="encrypted-media"
-          frameBorder="none"
-        />
-      ))}
+
+{isTabletOrMobile && (
+         <div className="slider-music-mobile">   
+         <NavigateBeforeIcon className="icons-music" onClick={previous}></NavigateBeforeIcon>
+             <iframe
+               className="player"
+               title="Spotify Player"
+               src={tracks[currentIndex]}
+               allowTransparency="true"
+               allow="encrypted-media"
+               frameBorder="none"
+             />
+             <NavigateNextIcon className="icons-music" onClick={next}></NavigateNextIcon>
+         
+           </div>
+        )}
+        {isDesktopOrLaptop && (
+          <>
+           <iframe
+           className="player-desktop"
+           title="Spotify Player"
+           src={`https://open.spotify.com/embed/track/1aQyW6u67mcf9qzbd98jgS`}
+           allowTransparency="true"
+           allow="encrypted-media"
+           frameBorder="none"
+         />  
+         <iframe
+         className="player-desktop"
+         title="Spotify Player"
+         src={`https://open.spotify.com/embed/track/1aQyW6u67mcf9qzbd98jgS`}
+         allowTransparency="true"
+         allow="encrypted-media"
+         frameBorder="none"
+       />  
+         <iframe
+         className="player-desktop"
+         title="Spotify Player"
+         src={`https://open.spotify.com/embed/track/1aQyW6u67mcf9qzbd98jgS`}
+         allowTransparency="true"
+         allow="encrypted-media"
+         frameBorder="none"
+       />  
+         <iframe
+         className="player-desktop"
+         title="Spotify Player"
+         src={`https://open.spotify.com/embed/track/1aQyW6u67mcf9qzbd98jgS`}
+         allowTransparency="true"
+         allow="encrypted-media"
+         frameBorder="none"
+       />  
+         <iframe
+         className="player-desktop"
+         title="Spotify Player"
+         src={`https://open.spotify.com/embed/track/1aQyW6u67mcf9qzbd98jgS`}
+         allowTransparency="true"
+         allow="encrypted-media"
+         frameBorder="none"
+       />  
+         <iframe
+         className="player-desktop"
+         title="Spotify Player"
+         src={`https://open.spotify.com/embed/track/1aQyW6u67mcf9qzbd98jgS`}
+         allowTransparency="true"
+         allow="encrypted-media"
+         frameBorder="none"
+       />  
+       </>
+         
+         
+     
+    
+         
+        )}
+    
+   
     </div>
   );
 }
 
 export default SectionMusic;
+
+// {tracks.map((track) => (
+
+//   <Slider {...settings}>
+
+//   <iframe
+//    className="player"
+//    title="Spotify Player"
+//    src={`https://open.spotify.com/embed/track/${track.id}`}
+//    allowTransparency="true"
+//    allow="encrypted-media"
+//    frameBorder="none"
+//  />  
+// }
+// //  </Slider>
+
+// // ))}
+
+// {/* <iframe
+// className="player"
+// title="Spotify Player"
+// src={`https://open.spotify.com/embed/track/1aQyW6u67mcf9qzbd98jgS`}
+// allowTransparency="true"
+// allow="encrypted-media"
+// frameBorder="none"
+// />
+// <iframe
+// className="player"
+// title="Spotify Player"
+// src={`https://open.spotify.com/embed/track/1aQyW6u67mcf9qzbd98jgS`}
+// allowTransparency="true"
+// allow="encrypted-media"
+// frameBorder="none"
+// />
+// <iframe
+// className="player"
+// title="Spotify Player"
+// src={`https://open.spotify.com/embed/track/1aQyW6u67mcf9qzbd98jgS`}
+// allowTransparency="true"
+// allow="encrypted-media"
+// frameBorder="none"
+// />
+// {
+//    <iframe
+// className="player"
+// title="Spotify Player"
+// src={`https://open.spotify.com/embed/track/1aQyW6u67mcf9qzbd98jgS`}
+// allowTransparency="true"
+// allow="encrypted-media"
+// frameBorder="none"
+// /> 
+// }
+// <iframe
+// className="player"
+// title="Spotify Player"
+// src={`https://open.spotify.com/embed/track/1aQyW6u67mcf9qzbd98jgS`}
+// allowTransparency="true"
+// allow="encrypted-media"
+// frameBorder="none"
+// />
+// <iframe
+// className="player"
+// title="Spotify Player"
+// src={`https://open.spotify.com/embed/track/1aQyW6u67mcf9qzbd98jgS`}
+// allowTransparency="true"
+// allow="encrypted-media"
+// frameBorder="none"
+// /> */}

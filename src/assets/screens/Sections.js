@@ -7,8 +7,13 @@ function Sections() {
   
     <div className="section-container">
     <SectionAbout></SectionAbout>
+   
+    <div className="teste">
     <SectionMusic></SectionMusic>
     </div>
+    
+    </div>
+   
 );
   
 }
