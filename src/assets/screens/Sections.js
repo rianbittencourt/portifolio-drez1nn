@@ -1,6 +1,7 @@
 import React from "react";
 import SectionAbout from "./SectionAbout";
 import SectionMusic from "./SectionMusic";
+import SectionServices from "./SectionServices";
 
 function Sections() {
   return(
@@ -11,6 +12,7 @@ function Sections() {
     <div className="teste">
     <SectionMusic></SectionMusic>
     </div>
+    <SectionServices></SectionServices>
     
     </div>
    
