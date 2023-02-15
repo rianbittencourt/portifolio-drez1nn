@@ -22,7 +22,7 @@ function Header() {
             <SocialMenu />
           </>
         )}
-        {isTabletOrMobile && <h1>teste</h1>}
+        {isTabletOrMobile && <MobileMenu></MobileMenu>}
       </div>
 
       <div className="banner-box">

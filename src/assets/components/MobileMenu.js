@@ -1,59 +1,50 @@
 import React, { useState } from "react";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { fas } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Button from '@mui/material/Button';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 
-library.add(fas);
 
 function MobileMenu() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggle = () => {
-    setIsOpen(!isOpen);
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
   };
 
   return (
-    <nav>
-      <div className="menu-toggle" onClick={toggle}>
-        <FontAwesomeIcon icon={["fas", "bars"]} />
-      </div>
-      {isOpen && (
-        <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact</li>
-        </ul>
-      )}
-      <style jsx>{`
-        nav {
-          display: flex;
-          justify-content: space-arround;
-          padding: 1rem;
-        }
-
-        .menu-toggle {
-          cursor: pointer;
-        }
-
-        i {
-          font-size: 1rem;
-        }
-
-        ul {
-          background-color: red;
-          list-style: none;
-          position: absolute;
-          display: flex;
-          height: 100vh;
-          padding: 0;
-          widht: 100%;
-          right: 0;
-        }
-        li {
-          padding: 0;
-        }
-      `}</style>
-    </nav>
+    <div>
+      <Button
+        id="demo-positioned-button"
+        aria-controls={open ? 'demo-positioned-menu' : undefined}
+        aria-haspopup="true"
+        aria-expanded={open ? 'true' : undefined}
+        onClick={handleClick}
+      >
+        Dashboard
+      </Button>
+      <Menu
+        id="demo-positioned-menu"
+        aria-labelledby="demo-positioned-button"
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: 'top',
+          horizontal: 'left',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'left',
+        }}
+      >
+        <MenuItem onClick={handleClose}>Profile</MenuItem>
+        <MenuItem onClick={handleClose}>My account</MenuItem>
+        <MenuItem onClick={handleClose}>Logout</MenuItem>
+      </Menu>
+    </div>
   );
 }
 

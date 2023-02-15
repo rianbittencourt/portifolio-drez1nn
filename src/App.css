@@ -143,7 +143,7 @@ button {
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.55);
   margin-bottom: 20px;
   max-width: 1000px;
-  font-size: 1.2em;
+  font-size: 1.5em;
   margin: 0 auto;
   padding: 20px;
 }
@@ -180,66 +180,19 @@ button {
   padding-right: 10px;
 }
 
-/* .SectionCard {
-  background-color: blue;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-
-.services-card img {
-  position: absolute;
-}
-
-.services-card{
-  
-  padding-top: 50px;
- 
-
-}
-
-.p-card {
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 1.5em;
-  color: #cbcbcb;
-  position: relative;
-  margin-top: 5px;
-
- 
-}
-
-.h1-card {
-  font-family: "Roboto";
-  font-style: normal;
-  font-size: 2.5em;
-  color: #eaeaea;
-
-
- 
-  margin-bottom: 0;
-  margin-top: 0;
-}
-
-.card-text {
-  margin-left: 100px;
-  max-width: 500px;
-}
- */
-
 .SectionContainer {
-  background-color: red;
-
+  background: rgba(228, 51, 51, 0.19);
   text-align: center;
 }
 
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
   max-width: 1000px;
   margin: 0 auto;
-  background-color: white;
+  padding: 20px;
+
 }
 
 .grid img {
@@ -261,25 +214,36 @@ button {
   font-size: 1.5em;
 
   text-align: start;
-  margin-top: 0;
-
+  margin-top: -20px;
   color: #cbcbcb;
 }
 
 .text-card-box {
   display: block;
   max-width: 100%;
-  margin-left: 15%;
+  margin-left: 20%;
   padding: 0;
+
 }
 
 .item {
   margin: 5px;
-  background: tomato;
+  background: #454545;
+  padding: 10px;
   text-align: center;
 }
 
 @media (max-width: 650px) {
+
+  .grid p{
+    font-size: 1.0em;
+  }
+
+  .p-container{
+
+    font-size: 1.0em;
+    line-height: 2;
+  }
   .header-box {
     padding: 20px;
   }
